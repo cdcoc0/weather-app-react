@@ -94,9 +94,6 @@ Weather.propTypes = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-
     },
 
     temp: {
@@ -116,20 +113,22 @@ const styles = StyleSheet.create({
     },
 
     textContainer: {
-        paddingHorizontal: 20, 
+        paddingHorizontal: 40, 
         alignItems: "flex-start", 
+        justifyContent: "center", 
+        flex: 1
     }, 
     
     title: {
         color: "white",
-        fontSize: 34,
-        fontWeight: "300",
+        fontSize: 40,
         marginBottom: 10,
+        textAlign: "left"
     },
 
     subtitle: {
         color: "white",
         fontSize: 24,
-        fontWeight: "bold",
+        textAlign: "left"
     },
 })
