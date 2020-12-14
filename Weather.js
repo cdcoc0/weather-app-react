@@ -5,43 +5,56 @@ import {LinearGradient} from 'expo-linear-gradient';
 import {MaterialCommunityIcons} from "@expo/vector-icons";
 //https://docs.expo.io/guides/icons/#expovector-icons
 
-const weatherOptions ={
+const weatherOptions = {
     Clear: {
         iconName: "white-balance-sunny",
-        gradient: ["#1FA2FF", "#12D8FA", "#A6FFCB"]
-
+        gradient: ["#1FA2FF", "#12D8FA", "#A6FFCB"],
+        title: "Sunny",
+        subtitle: "How about a picnic today?",
     },
 
     Thunderstorm: {
         iconName: "weather-lightning-rainy",
-        gradient: ["#1e130c", "#9a8478"]
+        gradient: ["#1e130c", "#9a8478"],
+        title: "Thunder & Lightning",
+        subtitle: "Just chill inside the house.",
     },
 
     Drizzle: {
         iconName:"weather-partly-rainy", 
-        gradient: ["#DAD299", "#B0DAB9"]
+        gradient: ["#DAD299", "#B0DAB9"],
+        title: "Rain drops",
+        subtitle: "It's OK. Gonna be fine.",
     },
 
     Rain: {
         iconName: "weather-rainy", 
-        gradient: ["#525252", "#3d72b4"]
+        gradient: ["#525252", "#3d72b4"],
+        title: "Rainy",
+        subtitle: "Don't forget your umbrella!",
     },
 
     Snow: {
         iconName: "snowflake", 
-        gradient: ["#DAE2F8", "#D6A4A4"]
+        gradient: ["#DAE2F8", "#D6A4A4"],
+        title: "Snowy",
+        subtitle: "Let's make a snowman!",
     },
 
     Atmosphere: {
         iconName: "weather-fog", 
-        gradient: ["#544a7d", "#ffd452"]
+        gradient: ["#544a7d", "#ffd452"],
+        title: "Dusts outside",
+        subtitle: "Facial mask is highly recommended.",
     },
 
     Clouds: {
         iconName: "cloud", 
-        gradient: ["#aa4b6b", "#6b6b83", "#3b8d99"]
+        gradient: ["#aa4b6b", "#6b6b83", "#3b8d99"],
+        title: "Cloudy",
+        subtitle: "The gray world makes us gloomy.",
     }
-}
+};
 
 export default function Weather({temp, condition}) {
     return (
@@ -57,7 +70,9 @@ export default function Weather({temp, condition}) {
             <Text style={styles.temp}>{temp}°</Text>
             <Text style={styles.condition}>{condition}</Text>
         </View>
-        <View style={styles.halfContainer}>
+        <View style={{...styles.halfContainer, ...styles.textContainer}}>
+            <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+            <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
         </View>
     </LinearGradient>
     );
@@ -98,5 +113,23 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-    }
+    },
+
+    textContainer: {
+        paddingHorizontal: 20, 
+        alignItems: "flex-start", 
+    }, 
+    
+    title: {
+        color: "white",
+        fontSize: 34,
+        fontWeight: "300",
+        marginBottom: 10,
+    },
+
+    subtitle: {
+        color: "white",
+        fontSize: 24,
+        fontWeight: "bold",
+    },
 })
