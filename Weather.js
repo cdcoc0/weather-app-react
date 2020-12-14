@@ -61,7 +61,7 @@ export default function Weather({temp, condition}) {
     <LinearGradient
     colors={weatherOptions[condition].gradient}
     style={styles.container}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="default" />
         <View style={styles.halfContainer}>
             <MaterialCommunityIcons
             name={weatherOptions[condition].iconName}
